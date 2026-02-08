@@ -8,6 +8,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 @EnableJpaAuditing
 public class BankApplication {
     public static void main(String[] args) {
+    	//this is the feature from branch feature-2 
         SpringApplication.run(BankApplication.class, args);
     }
 }
