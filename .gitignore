@@ -1,0 +1,19 @@
+# Maven build output
+/target/
+
+# Logs
+*.log
+
+# Compiled bytecode
+*.class
+
+# IntelliJ IDEA files
+.idea/
+*.iml
+
+# Environment variables
+.env
+
+# Local configuration (secrets)
+application-local.properties
+application-local.yml
