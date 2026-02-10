@@ -22,9 +22,9 @@ import org.springframework.web.bind.annotation.*;
 @RequiredArgsConstructor
 @Tag(name = "Authentication", description = "Authentication and Authorization APIs")
 public class AuthController {
-    
+
     private final AuthService authService;
-    
+
     @PostMapping("/register")
     @Operation(summary = "Register a new customer")
     public ResponseEntity<ApiResponse<CustomerResponse>> register(
@@ -32,10 +32,10 @@ public class AuthController {
         CustomerResponse response = authService.registerCustomer(request);
         return new ResponseEntity<>(
                 ApiResponse.success("Customer registered successfully", response),
-                HttpStatus.CREATED
-        );
+                ApiResponse.success("Customer registered successfully", authService),
+                HttpStatus.CREATED);
     }
-    
+
     @PostMapping("/login")
     @Operation(summary = "Login and get JWT token")
     public ResponseEntity<ApiResponse<LoginResponse>> login(
@@ -43,7 +43,7 @@ public class AuthController {
         LoginResponse response = authService.login(request);
         return ResponseEntity.ok(ApiResponse.success("Login successful", response));
     }
-    
+
     @GetMapping("/dashboard")
     @Operation(summary = "Get customer dashboard with summary")
     public ResponseEntity<ApiResponse<DashboardResponse>> getDashboard(
@@ -51,7 +51,7 @@ public class AuthController {
         DashboardResponse response = authService.getDashboard(currentUser.getId());
         return ResponseEntity.ok(ApiResponse.success("Dashboard fetched successfully", response));
     }
-    
+
     @PostMapping("/logout")
     @Operation(summary = "Logout (client should discard token)")
     public ResponseEntity<ApiResponse<String>> logout() {
