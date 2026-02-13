@@ -22,6 +22,7 @@ import java.util.List;
 @EntityListeners(AuditingEntityListener.class)
 public class Customer {
     //feature from branch feature-3
+    //this are the just some comments to test the commit and push functionality of git
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
