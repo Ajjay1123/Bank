@@ -22,7 +22,7 @@ import java.util.List;
 @Builder
 @EntityListeners(AuditingEntityListener.class)
 public class Account {
-    
+    //this are the just some comments to test the commit and push functionality of git
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
